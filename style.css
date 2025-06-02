@@ -17,7 +17,7 @@ body {
 .main-nav-button:not(.active):hover { color: #2a5266; }
 
 /* Replicated Student Dashboard Main Navigation */
-.student-main-tab-button { transition: all 0.3s ease; color: #4b5563; font-weight: 500;}
+.student-main-tab-button { transition: all 0.3s ease; color: #4b5563; font-weight: 500; padding: 0.5rem 1rem; } /* Added padding for consistency */
 .student-main-tab-button.active { background-color: #2a5266 !important; color: #ffffff !important; font-weight: 600;}
 
 /* Sub-tabs (used in replicated student view) */
@@ -116,21 +116,9 @@ body {
 .icon-placeholder { display: inline-block; width: 1em; height: 1em; margin-right: 0.3em; vertical-align: -0.125em; } 
 .chart-container canvas { max-height: 280px; }
 
-/* Styles for modal chart containers to control their height better */
-.modal-chart-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-.modal-chart-container {
-    position: relative; 
-    flex-grow: 1; 
-    height: 220px; /* Fixed height for modal charts */
-    width: 100%;   
-}
-.modal-chart-container canvas {
-    max-height: 100%;
-    max-width: 100%;
-}
+.modal-chart-wrapper { display: flex; flex-direction: column; }
+.modal-chart-container { position: relative; flex-grow: 1; height: 220px; width: 100%; }
+.modal-chart-container canvas { max-height: 100%; max-width: 100%; }
 
 /* Mobile Navigation Link Styling (for tutor and student replicated nav) */
 .mobile-nav-link.active {
