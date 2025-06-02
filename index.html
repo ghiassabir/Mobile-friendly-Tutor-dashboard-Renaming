@@ -14,30 +14,18 @@
     <header class="tutor-header p-4 shadow-lg">
         <div class="container mx-auto flex flex-wrap items-center justify-between">
             <div class="flex items-center">
-                <img src="assets/logo.png" alt="The SAT Hub Logo" class="h-12 md:h-16 w-auto mr-2 md:mr-3 rounded-md">
+                <img src="YOUR_HOSTED_LOGO_URL_HERE" alt="The SAT Hub Logo" class="h-12 md:h-16 w-auto mr-2 md:mr-3 rounded-md">
                 <h1 class="tutor-header-title text-xl md:text-2xl font-bold">Analytics Hub - Tutor Portal</h1>
             </div>
-            <div class="flex items-center space-x-4">
-                <span id="currentTutorDisplay" class="text-sm hidden sm:block">Tutor: Dr. Evelyn Reed</span>
-                <button id="tutorHamburgerButton" class="md:hidden text-f0f0f0 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
+            <span id="currentTutorDisplay" class="text-sm">Tutor: Dr. Evelyn Reed</span>
         </div>
     </header>
 
     <nav class="bg-white shadow-md sticky top-0 z-500">
-        <div class="container mx-auto hidden md:flex">
+        <div class="container mx-auto flex">
             <button data-tutor-tab="class-overview" class="main-nav-button active py-3 px-5">Class Overview</button>
             <button data-tutor-tab="student-performance-tiers" class="main-nav-button py-3 px-5">Student Performance Tiers</button>
             <button data-tutor-tab="student-deep-dive" class="main-nav-button py-3 px-5">Student Deep Dive</button>
-        </div>
-        <div id="tutorMobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-xl z-400">
-            <a href="#" data-tutor-tab="class-overview" class="mobile-nav-link block py-3 px-4 text-gray-700 hover:bg-gray-100">Class Overview</a>
-            <a href="#" data-tutor-tab="student-performance-tiers" class="mobile-nav-link block py-3 px-4 text-gray-700 hover:bg-gray-100">Student Performance Tiers</a>
-            <a href="#" data-tutor-tab="student-deep-dive" class="mobile-nav-link block py-3 px-4 text-gray-700 hover:bg-gray-100">Student Deep Dive</a>
         </div>
     </nav>
 
@@ -46,32 +34,30 @@
         <div id="class-overview-content" class="tutor-tab-content space-y-6">
             <h2 class="text-2xl font-semibold text-gray-800 mb-4">Class Performance Snapshot</h2>
             <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" id="classKpiSection">
-                {/* KPIs will be loaded by JS, individual cards will be themed */}
+                {/* KPIs: Avg Total Score, Avg R&W Score, Avg Math Score, Avg EOC Practice Score, Avg Activity Score */}
             </section>
              <section class="themed-card">
                 <div class="themed-card-title-strip">Class Activity Report</div>
                 <div class="themed-card-body">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center" id="classActivityReport">
-                        {/* Activity report content by JS */}
-                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center" id="classActivityReport"></div>
                 </div>
             </section>
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                 <div class="themed-card">
-                    <div class="themed-card-title-strip">Student Score Distribution (Total Score)</div> {/* Renamed */}
+                    <div class="themed-card-title-strip">Student Score Distribution (Total Score)</div>
                     <div class="themed-card-body chart-container">
                         <canvas id="classScoreDistributionChart" height="250"></canvas>
                     </div>
                 </div>
                 <div class="themed-card">
-                    <div class="themed-card-title-strip">Class Performance by Major Skills</div> {/* Renamed */}
+                    <div class="themed-card-title-strip">Class Performance by Major Skills</div>
                     <div class="themed-card-body chart-container">
                         <canvas id="classSkillPerformanceChart" height="250"></canvas>
                     </div>
                 </div>
             </section>
             <section class="themed-card">
-                <div class="themed-card-title-strip">EOC Practice - Areas for Class Focus</div> {/* Renamed */}
+                <div class="themed-card-title-strip">EOC Practice - Areas for Class Focus</div>
                 <div class="themed-card-body">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div><h4 class="font-medium text-gray-700 mb-2">Reading</h4><div id="classWeakEocReading" class="text-sm space-y-1 max-h-40 overflow-y-auto"></div></div>
@@ -81,7 +67,7 @@
                 </div>
             </section>
             <section class="themed-card">
-                 <div class="themed-card-title-strip">Skills - Class Strengths & Weaknesses</div> {/* Renamed */}
+                 <div class="themed-card-title-strip">Skills - Class Strengths & Weaknesses</div>
                  <div class="themed-card-body">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div><h4 class="font-medium text-green-600">Top Strengths:</h4><ul id="classSkillStrengths" class="list-disc list-inside text-sm"></ul></div>
@@ -94,34 +80,21 @@
         <div id="student-performance-tiers-content" class="tutor-tab-content hidden space-y-6">
             <h2 class="text-2xl font-semibold text-gray-800 mb-1">Student Performance Tiers</h2>
             <p class="text-sm text-gray-600 mb-4">Quick overview of students based on performance and engagement.</p>
-            
             <div class="themed-card mb-6"> 
                 <div class="themed-card-title-strip flex items-center"> 
                     <svg class="icon-placeholder w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
                     Sprinters & High Achievers
-                </div>
-                <div class="themed-card-body">
-                    <div id="sprintersList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-                </div>
+                </div><div class="themed-card-body"><div id="sprintersList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div></div>
             </div>
-
             <div class="themed-card"> 
                 <div class="themed-card-title-strip flex items-center"> 
                      <svg class="icon-placeholder w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                     Strugglers & Needs Focus
-                </div>
-                <div class="themed-card-body">
-                    <div id="strugglersList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-                </div>
+                </div><div class="themed-card-body"><div id="strugglersList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div></div>
             </div>
             <div class="themed-card mt-6"> 
                 <div class="themed-card-title-strip">Performance Quadrant (Conceptual)</div>
-                <div class="themed-card-body">
-                    <p class="text-sm text-gray-600">Visualizing students by Performance vs. Engagement.</p>
-                    <div class="mt-3 p-4 border-2 border-dashed border-gray-300 rounded-md h-48 flex items-center justify-center text-gray-500">
-                        [Placeholder for Performance vs. Engagement Quadrant Chart]
-                    </div>
-                </div>
+                <div class="themed-card-body"><p class="text-sm text-gray-600">Visualizing students by Performance vs. Engagement.</p><div class="mt-3 p-4 border-2 border-dashed border-gray-300 rounded-md h-48 flex items-center justify-center text-gray-500">[Placeholder for Performance vs. Engagement Quadrant Chart]</div></div>
             </div>
         </div>
 
@@ -130,22 +103,21 @@
             <div id="replicatedStudentDashboard" class="hidden">
                 <section id="tutorComparativeAnalysis" class="themed-card bg-blue-50 mb-6"> 
                     <div class="themed-card-title-strip" style="background-color: #2a5266; color: #ffd700;">Tutor's Comparative Analysis for <span id="comparativeStudentName"></span></div> 
-                    <div class="themed-card-body">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="studentComparisonWidgets">
-                        </div>
-                    </div>
+                    <div class="themed-card-body"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="studentComparisonWidgets"></div></div>
                 </section>
-                {/* Student's replicated navigation - already mobile responsive from student dashboard design */}
+                {/* Student's replicated navigation - This part uses the student's mobile-responsive nav system */}
                 <nav class="bg-gray-100 shadow-sm sticky top-16 z-400 mb-4 rounded-md">
+                    {/* Desktop Student Nav (within Tutor page) */}
                     <div class="container mx-auto hidden md:flex">
                         <button data-student-main-tab="overview" class="student-main-tab-button active py-2 px-4 text-sm">Overview</button>
-                        <button data-student-main-tab="cb-practice-tests" class="student-main-tab-button py-2 px-4 text-sm">CB Non-Adaptive Tests</button> {/* Renamed */}
+                        <button data-student-main-tab="cb-practice-tests" class="student-main-tab-button py-2 px-4 text-sm">CB Non-Adaptive Tests</button>
                         <button data-student-main-tab="reading" class="student-main-tab-button py-2 px-4 text-sm">Reading</button>
                         <button data-student-main-tab="writing" class="student-main-tab-button py-2 px-4 text-sm">Writing & Language</button>
                         <button data-student-main-tab="math" class="student-main-tab-button py-2 px-4 text-sm">Math</button>
                     </div>
+                    {/* Mobile Student Nav (within Tutor page) */}
                      <div class="md:hidden relative">
-                        <button id="studentMobileNavButton" class="w-full text-left p-3 bg-gray-200 font-semibold">Menu...</button>
+                        <button id="studentMobileNavButton" class="w-full text-left p-3 bg-gray-200 font-semibold hover:bg-gray-300">Student Menu...</button>
                         <div id="studentMobileNavMenu" class="hidden absolute top-full left-0 right-0 bg-white shadow-xl z-300">
                             <a href="#" data-student-main-tab="overview" class="mobile-nav-link block py-3 px-4 hover:bg-gray-100">Overview</a>
                             <a href="#" data-student-main-tab="cb-practice-tests" class="mobile-nav-link block py-3 px-4 hover:bg-gray-100">CB Non-Adaptive Tests</a>
